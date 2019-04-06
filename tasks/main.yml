@@ -1,0 +1,12 @@
+---
+- name: Install NFS utilies
+  yum:
+    name: nfs-utils
+    state: present
+
+- name: Mount network file share
+  mount:
+    path: /media
+    src: "{{ plex_nfs_path }}"
+    fstype: nfs
+    state: mounted
